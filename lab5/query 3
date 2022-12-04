@@ -1,0 +1,73 @@
+3. Find the names of all students and their courses' name even if they weren’t
+enrolled in any course.
+--------------------------------------------------------
+SELECT DISTINCT
+    s.student_name,
+    c.name AS course_name
+FROM
+    student s
+LEFT JOIN enrolled e ON
+    s.student_id = e.student_id
+LEFT JOIN course c ON
+    e.course_code = c.course_code;
+--------------------------------------------------------
+student_name	course_name	
+Maria White	Data Structures	
+Maria White	Archaeology of the Incas	
+Maria White	Aviation Accident Investigation	
+Charles Harris	Data Structures	
+Charles Harris	Database Systems	
+Charles Harris	Operating System Design	
+Charles Harris	Air Quality Engineering	
+Susan Martin	Database Systems	
+Susan Martin	Operating System Design	
+Susan Martin	Archaeology of the Incas	
+Joseph Thompson	Data Structures	
+Joseph Thompson	American Political Parties	
+Joseph Thompson	Social Cognition	
+Christopher Garcia	Operating System Design	
+Angela Martinez	Data Structures	
+Thomas Robinson	Database Systems	
+Thomas Robinson	Introductory Latin	
+Margaret Clark	Data Structures	
+Margaret Clark	Operating System Design	
+Margaret Clark	Archaeology of the Incas	
+Margaret Clark	Aviation Accident Investigation	
+Margaret Clark	Air Quality Engineering	
+Juan Rodriguez	Data Structures	
+Juan Rodriguez	Archaeology of the Incas	
+Juan Rodriguez	Aviation Accident Investigation	
+Dorthy Lewis	Data Structures	
+Dorthy Lewis	Database Systems	
+Dorthy Lewis	Aviation Accident Investigation	
+Dorthy Lewis	Air Quality Engineering	
+Dorthy Lewis	Introductory Latin	
+Daniel Lee	Data Structures	
+Daniel Lee	Archaeology of the Incas	
+Daniel Lee	Air Quality Engineering	
+Daniel Lee	Introductory Latin	
+Daniel Lee	American Political Parties	
+Lisa Walker	Data Structures	
+Lisa Walker	Archaeology of the Incas	
+Lisa Walker	American Political Parties	
+Lisa Walker	Social Cognition	
+Paul Hall	Data Structures	
+Paul Hall	Operating System Design	
+Paul Hall	Social Cognition	
+Nancy Allen	Operating System Design	
+Nancy Allen	Aviation Accident Investigation	
+Mark Young	Data Structures	
+Mark Young	Database Systems	
+Mark Young	Operating System Design	
+Mark Young	Aviation Accident Investigation	
+Mark Young	Air Quality Engineering	
+Luis Hernandez	Data Structures	
+Luis Hernandez	Database Systems	
+Luis Hernandez	Operating System Design	
+Luis Hernandez	Air Quality Engineering	
+Donald King	
+    NULL
+	
+George Wright	
+    NULL
+	

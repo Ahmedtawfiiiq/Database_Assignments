@@ -1,0 +1,22 @@
+10. Find course name, course code and professor name and id for courses that the
+same professor taught twice or more.
+-----------------------------------------------------
+SELECT DISTINCT
+    p.prof_name,
+    p.prof_id,
+    c.course_code,
+    c.name
+FROM
+    professor p,
+    course c,
+    semester_course sc1,
+    semester_course sc2
+WHERE
+    p.prof_id = sc1.prof_id AND p.prof_id = sc2.prof_id AND c.course_code = sc1.course_code AND c.course_code = sc2.course_code AND sc1.prof_id = sc2.prof_id AND(
+        sc1.QUARTER <> sc2.QUARTER OR sc1.course_year <> sc2.course_year
+    );
+-----------------------------------------------------
+prof_name	prof_id	course_code	name	
+Ivana Teach	1	CC10	Data Structures	
+Ivana Teach	1	CC15	Air Quality Engineering	
+Michael Miller	6	CC12	Operating System Design	

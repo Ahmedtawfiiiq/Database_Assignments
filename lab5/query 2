@@ -1,0 +1,34 @@
+2. Find the age of the oldest student who is either a “History” major or enrolled in a
+course taught by “Michael Miller”
+--------------------------------------------------------------------
+SELECT
+    MAX(s.age) AS oldest_age
+FROM
+    student s
+WHERE
+    EXISTS(
+        (
+        SELECT
+            s.age
+        FROM
+            student s
+        WHERE
+            s.major = "History"
+    )
+UNION
+    (
+    SELECT
+        s.age
+    FROM
+        student s,
+        professor p,
+        semester_course sc,
+        enrolled e
+    WHERE
+        p.prof_id = sc.prof_id AND sc.course_code = e.course_code AND e.student_id = s.student_id AND p.prof_name = "Michael Miller" AND e.QUARTER = sc.QUARTER AND e.course_year = sc.course_year
+)
+    );
+
+--------------------------------------------------------------
+
+22	

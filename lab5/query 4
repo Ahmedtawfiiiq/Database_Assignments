@@ -1,0 +1,21 @@
+4. Find the names of professors whose combined enrollment of all courses that they
+taught is less than five.
+---------------------------------------------------------
+SELECT
+    p.prof_name,
+    COUNT(e.student_id)
+FROM
+    professor p,
+    semester_course sc,
+    enrolled e
+WHERE
+    p.prof_id = sc.prof_id AND sc.course_code = e.course_code AND sc.QUARTER = e.QUARTER AND sc.course_year = e.course_year
+GROUP BY
+    p.prof_name
+HAVING
+    COUNT(e.student_id) < 5;
+
+-----------------------------------------------------
+prof_name	COUNT(e.student_id)	
+John Williams	3	
+Patricia Jones	2	

@@ -1,0 +1,16 @@
+1. Find the names of students with level “SR” who are enrolled in a class taught by
+professor whose id=“1”
+-----------------------------------------------------------------------------------
+SELECT DISTINCT
+    s.student_name
+FROM
+    student s,
+    enrolled e,
+    semester_course sc
+WHERE
+    sc.quarter = e.QUARTER and sc.course_year = e.course_year and s.student_id = e.student_id AND e.course_code = sc.course_code AND sc.prof_id = 1 AND s.student_level = "sr";
+-----------------------------------------------------------------------------------
+
+student_name	
+Charles Harris	
+Maria White	

@@ -1,0 +1,19 @@
+8. Find the names and ids of the professors that have enrolled in less than 2 courses
+and whose department is either 1,2,3,4
+--------------------------------------------------------------
+SELECT
+    p.prof_name,
+    p.prof_id
+FROM
+    professor p,
+    semester_course sc
+WHERE
+    sc.prof_id = p.prof_id AND p.dept_id IN(1, 2, 3, 4)
+GROUP BY
+    p.prof_name
+HAVING
+    COUNT(sc.course_code) < 2;
+--------------------------------------------------------------
+prof_name	prof_id	
+Mary Johnson	3	
+Patricia Jones	5	

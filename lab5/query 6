@@ -1,0 +1,35 @@
+6. Find all courses that haven't been taught before, as well as courses taught by
+professors who work in department “Computer Science”.
+--------------------------------------------------------------
+SELECT
+    cx.course_code
+FROM
+    course cx
+WHERE
+    EXISTS(
+    SELECT
+        c.course_code
+    FROM
+        course c
+    LEFT JOIN enrolled e ON
+        c.course_code = e.course_code
+    WHERE
+        cx.course_code = c.course_code
+    GROUP BY
+        c.course_code
+    HAVING
+        COUNT(e.student_id) = 0
+) AND EXISTS(
+    SELECT
+        sc.course_code
+    FROM
+        semester_course sc,
+        professor p,
+        department d
+    WHERE
+        cx.course_code = sc.course_code AND sc.prof_id = p.prof_id AND p.dept_id = d.dept_id AND d.dept_name = "Computer Science"
+);
+---------------------------------------------------------------
+course_code	
+CC19	
+CC20	

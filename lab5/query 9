@@ -1,0 +1,116 @@
+9. Find all students with their professor according to their enrollment in the
+professors’ courses, including the professor who doesn't teach any class or have no
+students enrolling in their courses and the student who haven't been enrolled in a
+class yet
+------------------------------------------------------------------------------------
+(
+    SELECT DISTINCT
+        s.student_name,
+        p.prof_name
+    FROM
+        student s
+    LEFT JOIN enrolled e ON
+        e.student_id = s.student_id
+    LEFT JOIN semester_course sc ON
+        sc.course_code = e.course_code AND sc.QUARTER = e.QUARTER AND sc.course_year = e.course_year
+    LEFT JOIN professor p ON
+        p.prof_id = sc.prof_id
+)
+UNION
+    (
+    SELECT DISTINCT
+        s.student_name,
+        p.prof_name
+    FROM
+        student s
+    RIGHT JOIN enrolled e ON
+        e.student_id = s.student_id
+    RIGHT JOIN semester_course sc ON
+        sc.course_code = e.course_code AND sc.QUARTER = e.QUARTER AND sc.course_year = e.course_year
+    RIGHT JOIN professor p ON
+        p.prof_id = sc.prof_id
+)
+------------------------------------------------------------------------------------
+
+student_name	prof_name	
+Maria White	John Williams	
+Maria White	Michael Miller	
+Maria White	James Smith	
+Maria White	Ivana Teach	
+Charles Harris	John Williams	
+Charles Harris	Michael Miller	
+Charles Harris	James Smith	
+Charles Harris	Ivana Teach	
+Charles Harris	Patricia Jones	
+Susan Martin	Ivana Teach	
+Susan Martin	Michael Miller	
+Susan Martin	Patricia Jones	
+Joseph Thompson	John Williams	
+Joseph Thompson	Michael Miller	
+Joseph Thompson	James Smith	
+Joseph Thompson	Ivana Teach	
+Christopher Garcia	Michael Miller	
+Christopher Garcia	Patricia Jones	
+Angela Martinez	John Williams	
+Angela Martinez	Michael Miller	
+Angela Martinez	James Smith	
+Angela Martinez	Ivana Teach	
+Thomas Robinson	Ivana Teach	
+Thomas Robinson	Michael Miller	
+Margaret Clark	John Williams	
+Margaret Clark	Michael Miller	
+Margaret Clark	James Smith	
+Margaret Clark	Ivana Teach	
+Margaret Clark	Patricia Jones	
+Juan Rodriguez	John Williams	
+Juan Rodriguez	Michael Miller	
+Juan Rodriguez	James Smith	
+Juan Rodriguez	Ivana Teach	
+Dorthy Lewis	John Williams	
+Dorthy Lewis	Michael Miller	
+Dorthy Lewis	James Smith	
+Dorthy Lewis	Ivana Teach	
+Daniel Lee	John Williams	
+Daniel Lee	Michael Miller	
+Daniel Lee	James Smith	
+Daniel Lee	Ivana Teach	
+Lisa Walker	John Williams	
+Lisa Walker	Michael Miller	
+Lisa Walker	James Smith	
+Lisa Walker	Ivana Teach	
+Paul Hall	John Williams	
+Paul Hall	Michael Miller	
+Paul Hall	James Smith	
+Paul Hall	Ivana Teach	
+Paul Hall	Patricia Jones	
+Nancy Allen	Michael Miller	
+Nancy Allen	Patricia Jones	
+Nancy Allen	Ivana Teach	
+Mark Young	John Williams	
+Mark Young	Michael Miller	
+Mark Young	James Smith	
+Mark Young	Ivana Teach	
+Mark Young	Patricia Jones	
+Luis Hernandez	John Williams	
+Luis Hernandez	Michael Miller	
+Luis Hernandez	James Smith	
+Luis Hernandez	Ivana Teach	
+Luis Hernandez	Patricia Jones	
+Donald King	
+    NULL
+	
+George Wright	
+    NULL
+	
+
+    NULL
+	Mary Johnson	
+
+    NULL
+	John Williams	
+
+    NULL
+	Robert Brown	
+
+    NULL
+	Linda Davis	

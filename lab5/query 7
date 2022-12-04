@@ -1,0 +1,29 @@
+7.1. Find names of all students whose names start with M and age < 20
+------------------------------------------------------
+SELECT
+    s.student_name
+FROM
+    student s
+WHERE
+    s.student_name LIKE 'M%' AND s.age < 20;
+------------------------------------------------------
+student_name	
+Margaret Clark	
+Mark Young	
+------------------------------------------------------
+7.2. all professors whose names starts with M and teaches more than 2 courses (note:2
+courses with same code but different years/semester are counted twice)
+------------------------------------------------------
+SELECT
+    p.prof_name
+FROM
+    professor p,
+    semester_course sc
+WHERE
+    p.prof_name LIKE "M%" AND p.prof_id = sc.prof_id
+GROUP BY
+    p.prof_name
+HAVING
+    COUNT(*) > 2;
+------------------------------------------------------
+Michael Miller	
