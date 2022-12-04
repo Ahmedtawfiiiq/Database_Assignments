@@ -1,0 +1,114 @@
+6. Write an SQL query to retrieve customer name, count of orders for each
+Customer even if the customer did not make any orders.
+------------------------------------------------
+SELECT
+    c.customer_name,
+    COUNT(o.order_id) AS NumberOfOrders
+FROM
+    customer c
+LEFT JOIN order_relation o ON
+    c.customer_id = o.customer_id
+GROUP BY
+    c.customer_id;
+------------------------------------------------
+customer_name	NumberOfOrders	
+Stewart Tyler	2	
+Christen Guerrero	1	
+Vaughan Ellison	0	
+Keefe Good	5	
+Jillian Austin	0	
+Chadwick Hogan	2	
+Walter Burton	4	
+Mara Hudson	3	
+Anika Gonzales	2	
+Wang Browning	2	
+Malachi Baxter	4	
+Tyrone Sullivan	0	
+Deanna Morales	3	
+Cyrus Saunders	3	
+Lilah Sanchez	1	
+Echo Bolton	2	
+Channing Lynn	2	
+Jeanette Hester	1	
+Russell Benjamin	0	
+Nita Branch	2	
+Ferris Pollard	2	
+Amal Marsh	1	
+Philip Cain	0	
+Ferris Foley	2	
+Wang Robertson	2	
+Xyla Hickman	3	
+Jennifer Coleman	1	
+Mark Franks	2	
+Vanna Mullen	1	
+May Reese	2	
+Evelyn Bowers	2	
+Hayden Weber	2	
+Melissa Valencia	0	
+Mariko Frederick	2	
+Raven Mann	1	
+Uta Miller	2	
+Guinevere Joyner	2	
+Hayfa Byers	1	
+Henry Bond	4	
+Zelda Love	2	
+Lane Klein	5	
+Addison Meadows	1	
+Venus Townsend	4	
+Charlotte Rios	5	
+Allen Howe	0	
+Gemma Cote	4	
+Ray Cash	1	
+TaShya Walters	2	
+Yoshio Poole	0	
+Kitra Hubbard	1	
+Kristen Barber	1	
+Dora Howe	2	
+Quinlan Greene	4	
+Sylvia Diaz	1	
+Garth Clements	2	
+Angela Burnett	1	
+Brody Whitfield	3	
+Keane Vinson	0	
+Imani Keith	3	
+Kylee Castro	1	
+Fatima Page	2	
+Regan Whitfield	3	
+Todd Burt	2	
+Donna Bernard	2	
+Althea Hebert	1	
+Neville Dyer	4	
+Zachery Pace	2	
+Mohammad Morgan	1	
+Gil Craig	1	
+Brett Zimmerman	2	
+Patricia Quinn	2	
+Madonna Foreman	2	
+Lara Morrison	1	
+Marvin Rich	3	
+Sydney Pierce	1	
+Courtney Dale	4	
+Hoyt Blanchard	2	
+Farrah Gould	3	
+Asher Clayton	2	
+Veda Rasmussen	2	
+Piper Dominguez	2	
+Jordan Best	3	
+Ginger Hood	2	
+Macy Holman	3	
+Bernard Drake	3	
+Harrison Heath	1	
+April Nguyen	2	
+Cade Crosby	3	
+Sawyer Mejia	2	
+Latifah Bullock	3	
+Carly Lowe	2	
+Clarke Mccullough	3	
+Victor Mckinney	1	
+Alexander Wiley	1	
+Noelle George	1	
+Venus Albert	3	
+Laurel Webster	0	
+Myra Santiago	4	
+Kennan Nash	2	
+Josiah Hatfield	3	

@@ -1,0 +1,55 @@
+7. Write an SQL query to retrieve all items that have not been ordered.
+-------------------------------------------------------------
+SELECT DISTINCT
+    i.item_id
+FROM
+    item i
+WHERE NOT
+    EXISTS(
+    SELECT
+        *
+    FROM
+        order_item oi
+    WHERE
+        oi.item_id = i.item_id
+);
+-------------------------------------------------------------
+item_id	
+3	
+5	
+9	
+10	
+14	
+16	
+24	
+28	
+34	
+42	
+51	
+55	
+56	
+73	
+75	
+78	
+80	
+81	
+84	
+88	
+89	
+92	
+94	
+99	
+109	
+116	
+121	
+132	
+147	
+156	
+161	
+177	
+179	
+180	
+181	
+185	
+190	
+199	

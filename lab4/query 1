@@ -1,0 +1,19 @@
+1. Write an SQL query to retrieve names of customers whose name starts with
+‘Ma’.
+---------------------------------------------------------------
+SELECT
+    customer_name
+FROM
+    customer
+WHERE
+    customer_name LIKE 'MA%';
+---------------------------------------------------------------
+customer_name	
+Mara Hudson	
+Malachi Baxter	
+Mark Franks	
+May Reese	
+Mariko Frederick	
+Madonna Foreman	
+Marvin Rich	
+Macy Holman	

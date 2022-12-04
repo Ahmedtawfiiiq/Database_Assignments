@@ -1,0 +1,19 @@
+3. Write an SQL query to retrieve order number for each order that had been 
+shipped from warehouse in ‘Arica’.
+--------------------------------------------------------
+SELECT
+    s.order_id
+FROM
+    shipment s,
+    warehouse w
+WHERE
+    s.warehouse_id = w.warehouse_id AND w.warehouse_city = "Arica"
+---------------------------------------------------------
+order_id	
+16	
+27	
+28	
+114	
+124	
+182	
+183	

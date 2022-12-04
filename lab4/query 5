@@ -1,0 +1,77 @@
+5. Write an SQL query to retrieve warehouse id, city, and count of orders 
+shipped from this warehouse. The query should show all warehouses 
+even if there are no orders had been shipped from this warehouse.
+-------------------------------------------------------------
+SELECT
+    w.warehouse_id,
+    w.warehouse_city,
+    COUNT(s.order_id) AS NumberOfOrders
+FROM
+    warehouse w
+LEFT JOIN shipment s ON
+    s.warehouse_id = w.warehouse_id
+GROUP BY
+    w.warehouse_id,
+    w.warehouse_city;
+------------------------------------------------------------
+warehouse_id	warehouse_city	NumberOfOrders	
+1	Geelong	3	
+2	Grande Prairie	2	
+3	Lede	4	
+4	Oostende	3	
+5	Kumluca	4	
+6	Arica	7	
+7	Midlands	3	
+8	Aulnay-sous-Bois	7	
+9	Soria	0	
+10	Rouvroy	2	
+11	Precenicco	5	
+12	Sesto al Reghena	3	
+13	Edmundston	1	
+14	Beho	2	
+15	Aisén	4	
+16	Essex	8	
+17	Merritt	4	
+18	Ellikom	4	
+19	l'Escaillre	3	
+20	Houdemont	0	
+21	Enterprise	3	
+22	Queilén	2	
+23	Southwell	1	
+24	Recoleta	2	
+25	Panchià	5	
+26	Chichester	4	
+27	Orsara di Puglia	5	
+28	Coquitlam	3	
+29	Geertruidenberg	3	
+30	Alingsås	3	
+31	Aurora	3	
+32	Cz?stochowa	3	
+33	Cheltenham	5	
+34	Duncan	3	
+35	Les Bons Villers	2	
+36	Halifax	1	
+37	Secunderabad	4	
+38	La Baie	1	
+39	Cupar	1	
+40	Castiglione Messer Raimondo	3	
+41	Sint-Pauwels	2	
+42	Moncton	6	
+43	Martello/Martell	5	
+44	Biesme-sous-Thuin	7	
+45	Avennes	5	
+46	Bierk Bierghes	4	
+47	Purén	3	
+48	Schriek	3	
+49	St. Thomas	8	
+50	Wardha	3	
+51	Petit-Thier	4	
+52	Beerzel	0	
+53	Aurora	1	
+54	Contulmo	4	
+55	Kirriemuir	2	
+56	Burin	1	
+57	Harrogate	4	
+58	Durness	1	
+59	Whitby	5	
+60	Shipshaw	6	

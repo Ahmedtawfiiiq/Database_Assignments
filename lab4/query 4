@@ -1,0 +1,23 @@
+4. Write an SQL query to retrieve total price of orders that had been shipped
+from warehouse #8.
+-------------------------------------------------------------
+SELECT
+    oi.order_id,
+    COUNT(oi.item_id) AS NumberOfItems,
+    SUM(i.unit_price * oi.quantity) AS TotalPrice
+FROM
+    item i,
+    order_item oi,
+    shipment s
+WHERE
+    i.item_id = oi.item_id AND s.order_id = oi.order_id AND S.warehouse_id = 8
+GROUP BY
+    order_id
+--------------------------------------------------------------
+
+order_id	NumberOfItems	TotalPrice	
+20	2	45245	
+39	3	205654	
+67	3	211750	
+90	4	489824	
+123	1	2510	
